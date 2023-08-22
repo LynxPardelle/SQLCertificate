@@ -64,9 +64,9 @@ CREATE TABLE article_subcat_relation (
 
 -- Probando otras cosas, favor de no prestar atención a lo de abajo.
 /* 
-  Vistas:
+    Vistas:
 
-  all_articles: 
+    all_articles: 
     - article_id
     - article_title
     - article_created_at
@@ -107,9 +107,9 @@ LEFT JOIN sections ON articles.article_id = sections.article
 GROUP BY articles.article_id, users.user_id, categories.cat_id;
 
 /* 
-  Funciones:
+    Funciones:
 
-  get_article_by_id(article_id INT): 
+    get_article_by_id(article_id INT): 
     - article_id
     - article_title
     - article_created_at
@@ -157,15 +157,15 @@ END;
 DELIMITER ;
 
 /* 
-  Llamada de la función get_article_by_id(article_id INT):
+    Llamada de la función get_article_by_id(article_id INT):
 
-  SELECT get_article_by_id(1);
+    SELECT get_article_by_id(1);
  */
 
 /* 
-  Stored Procedures:
+    Stored Procedures:
 
-  refresh_all_articles_view(): 
+    refresh_all_articles_view(): 
     - article_id
     - article_title
     - article_created_at
@@ -183,26 +183,26 @@ BEGIN
 
     CREATE VIEW all_articles AS
     SELECT 
-      articles.article_id,
-      articles.title AS article_title,
-      articles.created_at AS article_created_at,
-      articles.updated_at AS article_updated_at,
-      JSON_OBJECT(
-          'cat_id', categories.cat_id,
-          'title', categories.title
-      ) AS cat,
-      JSON_ARRAYAGG(JSON_OBJECT('subcat_id', sub_categories.subcat_id, 'title', sub_categories.title)) AS subcats,
-      JSON_OBJECT(
-          'user_id', users.user_id,
-          'name', users.name,
-          'last_name', users.last_name,
-          'email', users.email,
-          'nickname', users.nickname,
-          'avatar', users.avatar,
-          'created_at', users.created_at,
-          'updated_at', users.updated_at
-      ) AS autor,
-      JSON_ARRAYAGG(JSON_OBJECT('section_id', sections.section_id, 'title', sections.title, 'text', sections.text)) AS sections
+        articles.article_id,
+        articles.title AS article_title,
+        articles.created_at AS article_created_at,
+        articles.updated_at AS article_updated_at,
+        JSON_OBJECT(
+            'cat_id', categories.cat_id,
+            'title', categories.title
+        ) AS cat,
+        JSON_ARRAYAGG(JSON_OBJECT('subcat_id', sub_categories.subcat_id, 'title', sub_categories.title)) AS subcats,
+        JSON_OBJECT(
+            'user_id', users.user_id,
+            'name', users.name,
+            'last_name', users.last_name,
+            'email', users.email,
+            'nickname', users.nickname,
+            'avatar', users.avatar,
+            'created_at', users.created_at,
+            'updated_at', users.updated_at
+        ) AS autor,
+        JSON_ARRAYAGG(JSON_OBJECT('section_id', sections.section_id, 'title', sections.title, 'text', sections.text)) AS sections
     FROM articles
     JOIN users ON articles.autor = users.user_id
     JOIN article_subcat_relation ON articles.article_id = article_subcat_relation.article_id
