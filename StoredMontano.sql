@@ -7,6 +7,9 @@ USE blog;
     - table_name
     - order_column
     - order_direction
+    Description: Ordena una tabla por una columna específica.
+    Objetivo: Ordenar una tabla por una columna específica.
+    Tablas Relacionadas: Todas las tablas.
  */
 DELIMITER //
 
@@ -37,6 +40,9 @@ DELIMITER ;
     - new_nickname
     - new_password
     - new_avatar
+    Description: Inserta o elimina un usuario de la tabla.
+    Objetivo: Insertar o eliminar un usuario de la tabla.
+    Tablas Relacionadas: users
  */
 DELIMITER //
 
@@ -79,6 +85,9 @@ DELIMITER ;
     - subcats
     - autor
     - sections
+    Description: Actualiza la vista all_articles.
+    Objetivo: Actualizar la vista all_articles.
+    Tablas Relacionadas: all_articles
 */
 DELIMITER //
 

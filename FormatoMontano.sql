@@ -11,6 +11,9 @@
     - subcats
     - autor
     - sections
+    Descripción: Retorna un artículo por su id.
+    Objetivo: Obtener un artículo por su id.
+    Tablas Relacionadas: articles, categories, subcategories, users, sections, article_sections
  */
 DELIMITER //
 
@@ -56,6 +59,9 @@ DELIMITER ;
  */
 /* 
     change_password(user_email VARCHAR(100), old_password VARCHAR(100), new_password VARCHAR(100)): BOOLEAN
+    Descripción: Cambia la contraseña de un usuario.
+    Objetivo: Cambiar la contraseña de un usuario.
+    Tablas Relacionadas: users
  */
 DELIMITER //
 
@@ -98,6 +104,9 @@ DELIMITER ;
  */
 /* 
     login_user(user_email VARCHAR(100), user_password VARCHAR(100)): JSON
+    Descripción: Retorna los datos de un usuario si las credenciales son correctas.
+    Objetivo: Obtener los datos de un usuario si las credenciales son correctas.
+    Tablas Relacionadas: users
  */
 DELIMITER //
 

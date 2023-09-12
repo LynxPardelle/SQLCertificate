@@ -12,6 +12,19 @@ USE blog;
     - subcats
     - autor
     - sections
+    Description:
+    Esta vista contiene todos los artículos, con sus categorías, subcategorías, autor y secciones.
+    Objetivo:
+    Esta vista se utiliza para mostrar todos los artículos y sus tablas relacionadas de manera sencilla.
+    Tablas Relacionadas:
+    - articles
+    - users
+    - article_subcat_relation
+    - sub_categories
+    - categories
+    - sections
+    Uso:
+    SELECT * FROM all_articles;
  */
 CREATE VIEW all_articles AS
 SELECT 
@@ -52,6 +65,17 @@ GROUP BY articles.article_id, users.user_id, categories.cat_id;
     - cat
     - subcats
     - autor
+    - sections
+    Description:
+    Esta vista contiene todos los artículos de un usuario, con sus categorías, subcategorías, autor y secciones.
+    Objetivo:
+    Esta vista se utiliza para mostrar todos los artículos de un usuario y sus tablas relacionadas de manera sencilla.
+    Tablas Relacionadas:
+    - articles
+    - users
+    - article_subcat_relation
+    - sub_categories
+    - categories
     - sections
  */
 CREATE VIEW articles_by_user AS
@@ -191,6 +215,13 @@ GROUP BY articles.article_id, users.user_id, categories.cat_id; */
     - cat_id
     - created_at
     - updated_at
+    Description:
+    Esta vista contiene todas las subcategorías de una categoría.
+    Objetivo:
+    Esta vista se utiliza para mostrar todas las subcategorías de una categoría.
+    Tablas Relacionadas:
+    - sub_categories
+    - categories
  */
 CREATE VIEW subcats_by_cat AS
 SELECT
@@ -213,6 +244,17 @@ WHERE sub_categories.cat_id = cat_id;
     - article_title
     - article_created_at
     - article_updated_at
+    Description:
+    Esta vista contiene todos los artículos, con sus categorías, subcategorías, autor y secciones.
+    Objetivo:
+    Esta vista se utiliza para mostrar todos los artículos divididos por categorías y sus tablas relacionadas de manera sencilla.
+    Tablas Relacionadas:
+    - articles
+    - users
+    - article_subcat_relation
+    - sub_categories
+    - categories
+    - sections
  */
 CREATE VIEW articles_dividen_by_category AS
 SELECT
@@ -240,6 +282,13 @@ JOIN
     - name
     - last_name
     - article_count
+    Description:
+    Esta vista contiene todos los artículos, con sus categorías, subcategorías, autor y secciones.
+    Objetivo:
+    Esta vista se utiliza para mostrar los usuarios y la cantidad de artículos que han escrito.
+    Tablas Relacionadas:
+    - users
+    - articles
  */
 CREATE VIEW user_article_counts AS
 SELECT
@@ -264,6 +313,17 @@ GROUP BY
     - total_categories
     - total_subcategories
     - total_sections
+    Description:
+    Esta vista contiene todos los artículos, con sus categorías, subcategorías, autor y secciones.
+    Objetivo:
+    Esta vista ayudará a mostrar las estadísticas de uso de la aplicación.
+    Tablas Relacionadas:
+    - users
+    - articles
+    - article_subcat_relation
+    - sub_categories
+    - categories
+    - sections
  */
 CREATE VIEW usage_statistics AS
 SELECT
