@@ -33,23 +33,72 @@ CREATE TRIGGER before_users_insert
 BEFORE INSERT
 ON users FOR EACH ROW
 BEGIN
-    INSERT INTO actions_log (action, table_name)
-    VALUES ('Usuario creado', 'users');
     INSERT INTO actions_log (action, table_name, action_date, action_time)
     VALUES ('Usuario creado', 'users',  CURDATE(), CURTIME());
 END;
 // 
   DELIMITER ;
 DELIMITER //
+/* 
+    El trigger before_users_delete se ejecuta antes de eliminar 
+    un registro en la tabla users y se usa para crear 
+    un nuevo registro en la tabla actions_log.
+*/
+DELIMITER //
 
--- Triggers para la tabla 'articles'
+CREATE TRIGGER before_users_delete
+BEFORE DELETE
+ON users FOR EACH ROW
+BEGIN
+    INSERT INTO actions_log (action, table_name, action_date, action_time)
+    VALUES ('Usuario eliminado', 'users',  CURDATE(), CURTIME());
+END;
+// 
+  DELIMITER ;
+DELIMITER //
+/* 
+    El trigger before_articles_insert se ejecuta antes de insertar 
+    un nuevo registro en la tabla articles y se usa para crear 
+    un nuevo registro en la tabla actions_log.
+*/
+DELIMITER //
+
+CREATE TRIGGER before_articles_insert
+BEFORE INSERT
+ON articles FOR EACH ROW
+BEGIN
+    INSERT INTO actions_log (action, table_name, action_date, action_time)
+    VALUES ('Artículo creado', 'articles',  CURDATE(), CURTIME());
+END;
+// 
+  DELIMITER ;
+DELIMITER //
+/* 
+    El trigger before_articles_delete se ejecuta antes de eliminar 
+    un registro en la tabla articles y se usa para crear 
+    un nuevo registro en la tabla actions_log.
+*/
+DELIMITER //
+
+CREATE TRIGGER before_articles_delete
+BEFORE DELETE
+ON articles FOR EACH ROW
+BEGIN
+    INSERT INTO actions_log (action, table_name, action_date, action_time)
+    VALUES ('Artículo eliminado', 'articles',  CURDATE(), CURTIME());
+END;
+// 
+  DELIMITER ;
+DELIMITER //
+
+-- Triggers para views de 'articles'
 /* 
   Los triggers after_articles_insert, after_articles_update 
   y after_articles_delete se ejecutan después de insertar, 
   actualizar o eliminar un registro en la tabla articles 
   y se usan para actualizar la vista all_articles.
  */
-CREATE TRIGGER after_articles_insert
+/* CREATE TRIGGER after_articles_insert
 AFTER INSERT
 ON articles FOR EACH ROW
 BEGIN
@@ -71,5 +120,4 @@ ON articles FOR EACH ROW
 BEGIN
     CALL refresh_all_articles_view();
 END;
-//
-  DELIMITER ;
+//  DELIMITER ; */

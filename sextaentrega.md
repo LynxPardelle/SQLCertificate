@@ -14,3 +14,16 @@ Los Triggers a crear deberán controlar la acción previo a la operación elegid
 
 # Formato
 El archivo a presentar debe ser del tipo .sql nombrado como “Triggers+Apellido”.
+
+# Correcciones
+El trigger de insercion me funciona.
+
+Pero no te comprendi muy bien los triggers siguientes que son mar cortitos. Tambien me generan error al querer modificar por ejemplo un dato de la tabla articles
+![Alt text](image-2.png)
+Quedo atento.
+
+Saludos
+
+Podes probar con USER()  si no me equivoco deberia ser ese. A que te estarias refiriendo con la aplicacion? En mi caso cuando vemos sobre triggers para el usuario. Utilizo de esa forma
+# Aclaraciones
+Por lo visto hay un problema al usar stored procedures en triggers. Se agregaron triggers nuevos que no usan stored procedures.
