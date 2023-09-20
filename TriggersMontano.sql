@@ -36,9 +36,7 @@ BEGIN
     INSERT INTO actions_log (action, table_name, action_date, action_time)
     VALUES ('Usuario creado', 'users',  CURDATE(), CURTIME());
 END;
-// 
-  DELIMITER ;
-DELIMITER //
+// DELIMITER ;
 /* 
     El trigger before_users_delete se ejecuta antes de eliminar 
     un registro en la tabla users y se usa para crear 
@@ -53,9 +51,7 @@ BEGIN
     INSERT INTO actions_log (action, table_name, action_date, action_time)
     VALUES ('Usuario eliminado', 'users',  CURDATE(), CURTIME());
 END;
-// 
-  DELIMITER ;
-DELIMITER //
+// DELIMITER ;
 /* 
     El trigger before_articles_insert se ejecuta antes de insertar 
     un nuevo registro en la tabla articles y se usa para crear 
@@ -70,9 +66,7 @@ BEGIN
     INSERT INTO actions_log (action, table_name, action_date, action_time)
     VALUES ('Artículo creado', 'articles',  CURDATE(), CURTIME());
 END;
-// 
-  DELIMITER ;
-DELIMITER //
+// DELIMITER ;
 /* 
     El trigger before_articles_delete se ejecuta antes de eliminar 
     un registro en la tabla articles y se usa para crear 
@@ -87,9 +81,7 @@ BEGIN
     INSERT INTO actions_log (action, table_name, action_date, action_time)
     VALUES ('Artículo eliminado', 'articles',  CURDATE(), CURTIME());
 END;
-// 
-  DELIMITER ;
-DELIMITER //
+//  DELIMITER ;
 
 -- Triggers para views de 'articles'
 /* 
@@ -98,7 +90,10 @@ DELIMITER //
   actualizar o eliminar un registro en la tabla articles 
   y se usan para actualizar la vista all_articles.
  */
-/* CREATE TRIGGER after_articles_insert
+/*
+
+DELIMITER //
+CREATE TRIGGER after_articles_insert
 AFTER INSERT
 ON articles FOR EACH ROW
 BEGIN
