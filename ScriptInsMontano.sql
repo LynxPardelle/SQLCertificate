@@ -34,4 +34,6 @@ INSERT INTO article_subcat_relation (article_id, subcat_id)
 VALUES (1, 1),
 (2, 2),
 (3, 3);
-
+/* Insert into main */
+INSERT INTO main (name)
+VALUES ('Blog de Lynx Pardelle');

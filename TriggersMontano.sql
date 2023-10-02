@@ -1,16 +1,16 @@
 USE blog;
 /* 
-  actions_log:
-  - action_id
-  - timestamp
-  - user_id
-  - action
-  - table_name
-  - user_name
-  - action_date
-  - action_time
+    actions_log:
+    - action_id
+    - timestamp
+    - user_id
+    - action
+    - table_name
+    - user_name
+    - action_date
+    - action_time
  */
-CREATE TABLE actions_log (
+/* CREATE TABLE actions_log (
     action_id INT AUTO_INCREMENT PRIMARY KEY,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     user_id INT, -- ID del usuario que realizó la acción
@@ -18,7 +18,7 @@ CREATE TABLE actions_log (
     table_name VARCHAR(100), -- Nombre de la tabla relacionada con la acción (si es aplicable)
     action_date DATE, -- Fecha de la acción
     action_time TIME -- Hora de la acción
-);
+); */
 /* 
     Triggers:
 */

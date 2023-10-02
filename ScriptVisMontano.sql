@@ -30,6 +30,10 @@ CREATE VIEW all_articles AS
 SELECT 
     articles.article_id,
     articles.title AS article_title,
+    articles.bg_color As article_bg_color,
+    articles.text_color As article_text_color,
+    articles.title_color As article_title_color,
+    articles.highlight_color As article_highlight_color,
     articles.created_at AS article_created_at,
     articles.updated_at AS article_updated_at,
     JSON_OBJECT(
@@ -44,10 +48,24 @@ SELECT
         'email', users.email,
         'nickname', users.nickname,
         'avatar', users.avatar,
+            'bg_color', users.bg_color,
+            'text_color', users.text_color,
+            'title_color', users.title_color,
+            'highlight_color', users.highlight_color,
         'created_at', users.created_at,
         'updated_at', users.updated_at
     ) AS autor,
-    JSON_ARRAYAGG(JSON_OBJECT('section_id', sections.section_id, 'title', sections.title, 'text', sections.text)) AS sections
+        JSON_ARRAYAGG(JSON_OBJECT(
+            'section_id', sections.section_id, 
+            'title', sections.title, 
+            'text', sections.text,
+            'bg_color', sections.bg_color,
+            'text_color', sections.text_color,
+            'title_color', sections.title_color,
+            'highlight_color', sections.highlight_color,
+            'created_at', sections.created_at,
+            'updated_at', sections.updated_at
+        )) AS sections
 FROM articles
 JOIN users ON articles.autor = users.user_id
 JOIN article_subcat_relation ON articles.article_id = article_subcat_relation.article_id
@@ -82,6 +100,10 @@ CREATE VIEW articles_by_user AS
 SELECT
     articles.article_id,
     articles.title AS article_title,
+    articles.bg_color As article_bg_color,
+    articles.text_color As article_text_color,
+    articles.title_color As article_title_color,
+    articles.highlight_color As article_highlight_color,
     articles.created_at AS article_created_at,
     articles.updated_at AS article_updated_at,
     JSON_OBJECT(
@@ -96,10 +118,24 @@ SELECT
         'email', users.email,
         'nickname', users.nickname,
         'avatar', users.avatar,
+            'bg_color', users.bg_color,
+            'text_color', users.text_color,
+            'title_color', users.title_color,
+            'highlight_color', users.highlight_color,
         'created_at', users.created_at,
         'updated_at', users.updated_at
     ) AS autor,
-    JSON_ARRAYAGG(JSON_OBJECT('section_id', sections.section_id, 'title', sections.title, 'text', sections.text)) AS sections
+        JSON_ARRAYAGG(JSON_OBJECT(
+            'section_id', sections.section_id, 
+            'title', sections.title, 
+            'text', sections.text,
+            'bg_color', sections.bg_color,
+            'text_color', sections.text_color,
+            'title_color', sections.title_color,
+            'highlight_color', sections.highlight_color,
+            'created_at', sections.created_at,
+            'updated_at', sections.updated_at
+        )) AS sections
 FROM articles
 JOIN users ON articles.autor = users.user_id
 JOIN article_subcat_relation ON articles.article_id = article_subcat_relation.article_id

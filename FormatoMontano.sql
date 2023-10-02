@@ -39,7 +39,11 @@ BEGIN
         'cat', all_articles.cat,
         'subcats', all_articles.subcats,
         'autor', all_articles.autor,
-        'sections', all_articles.sections
+        'sections', all_articles.sections,
+        'article_bg_color', all_articles.article_bg_color,
+        'article_text_color', all_articles.article_text_color,
+        'article_title_color', all_articles.article_title_color,
+        'article_highlight_color', all_articles.article_highlight_color
     )
     INTO article_json
     FROM all_articles
@@ -81,7 +85,13 @@ BEGIN
         'last_name', last_name,
         'email', email,
         'nickname', nickname,
-        'avatar', avatar
+        'avatar', avatar,
+        'bg_color', bg_color,
+        'text_color', text_color,
+        'title_color', title_color,
+        'highlight_color', highlight_color,
+        'created_at', created_at,
+        'updated_at', updated_at
     ) INTO user_data
     FROM users
     WHERE email = user_email AND password = old_password;
@@ -125,7 +135,13 @@ BEGIN
         'last_name', last_name,
         'email', email,
         'nickname', nickname,
-        'avatar', avatar
+        'avatar', avatar,
+        'bg_color', bg_color,
+        'text_color', text_color,
+        'title_color', title_color,
+        'highlight_color', highlight_color,
+        'created_at', created_at,
+        'updated_at', updated_at
     ) INTO user_data
     FROM users
     WHERE email = user_email AND password = user_password;
