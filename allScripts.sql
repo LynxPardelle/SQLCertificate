@@ -140,7 +140,7 @@ CREATE TABLE actions_log (
     table_name VARCHAR(100), -- Nombre de la tabla relacionada con la acción (si es aplicable)
     action_date DATE, -- Fecha de la acción
     action_time TIME, -- Hora de la acción
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 /* 
     main:
